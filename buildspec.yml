@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    commands:
+
+      #install dotnet6 untill it's available in codebuild
+      - curl -sSL http://dot.net/v1/dotnet-install.sh | bash -s -- -Version 6.0.100
+
+      # Restore, Build and Run the DB Up App
+      - cd ./
+      - dotnet clean
+      - dotnet restore
+      - dotnet build
